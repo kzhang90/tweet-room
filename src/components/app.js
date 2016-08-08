@@ -1,27 +1,14 @@
 import React from 'react';
+import Feed from './feed';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      
-    }
-  }
+export default class App extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Twitta Twatta</h1>
-      </div>
+        <div>
+          <h1>Twitta Twatta</h1>
+          <Feed />
+        </div>
     );
   }
 }
 
-App.propTypes = {
-
-}
-
-App.defaultProps = {
-
-}
-
-export default App;
