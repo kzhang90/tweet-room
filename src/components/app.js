@@ -10,7 +10,11 @@ export default class App extends React.Component {
       // count: props.initialCount
     };
     // any method that is in the class needs to be bound to the instance.
-    // this.method = this.method.bind(this)
+    this.increment = this.increment.bind(this);
+  }
+
+  increment() {
+
   }
 
   componentWillMount() {
