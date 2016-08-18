@@ -21,9 +21,14 @@ export default class Login extends React.component {
   render() {
     return (
       <form role="form">
-      <div className="form-group">
-        <input type="text" valueLink={this.linkState('user')} placeholder="username" />
-        
+        <div className="form-group">
+          <input type="text" valueLink={this.linkState('user')} placeholder="username" />
+          <input type="password" valueLink={this.linkState('password')} placeholder="password" />
+        </div>
+        <button type="submit" onClick={this.login.bind(this)}>Submit</button>
+      </form>
     );
   }
 }
+
+reactMixin(Login.prototype, React.addons.LinkedStateMixin);
