@@ -27,6 +27,10 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    contentBase: './public',
+    hot: true
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
