@@ -1,7 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 import App from './components/app';
 
-render(<App />, document.getElementById('app'));
+render((
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home}/>
+    </Route>
+  </Router>
+), document.getElementById('app'));
+
