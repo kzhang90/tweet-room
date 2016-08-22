@@ -47,7 +47,7 @@ export default class App extends React.Component {
     console.log('in the app!');
     return (
         <div>
-          <h1>Wecome to Tweet Room</h1>
+          <h1>App Component</h1>
           <div>Another div</div>
           <button onClick={this.increment}>{this.state.count}</button>
           <Feed />
