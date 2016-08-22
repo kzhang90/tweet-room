@@ -3,16 +3,14 @@ var path = require('path');
 
 module.exports = {
   devtool: 'inline-source-map',
-  // unsure about line below:
-  // target: 'node',
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:8080/',
     'webpack/hot/only-dev-server',
     './src'
   ],
   output: {
-    path: path.join(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: path.join(__dirname, 'public')
   },
   resolve: {
     moduleDirectories: ['node_modules', 'src'],
@@ -21,6 +19,7 @@ module.exports = {
   module: {
     loaders: [
       {
+        // test for both .js and .jsx files
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
@@ -29,6 +28,7 @@ module.exports = {
   },
   devServer: {
     contentBase: './public',
+    historyApiFallback: true,
     hot: true
   },
   plugins: [
