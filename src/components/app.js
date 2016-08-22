@@ -3,14 +3,7 @@ import NavBar from './navbar';
 
 export default class App extends React.Component {
 
-  constructor() {
-    console.log("in the constructor");
-    super();
-    this.state = {};
-  }
-
   render() {
-    console.log('in the app!');
     return (
         <div>
           <NavBar />
@@ -19,11 +12,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-App.propTypes = {
-  // initialCount: React.PropTypes.number
-};
-App.defaultProps = {
-  // default props go here
-}
-
