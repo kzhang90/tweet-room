@@ -1,5 +1,6 @@
 import React from 'react';
 import Feed from './feed';
+import NavBar from './navbar';
 
 export default class App extends React.Component {
 
@@ -47,10 +48,10 @@ export default class App extends React.Component {
     console.log('in the app!');
     return (
         <div>
-          <h1>App Component</h1>
-          <div>Another div</div>
+          <NavBar />
+          <h1>Main Title</h1>
           <button onClick={this.increment}>{this.state.count}</button>
-          <Feed />
+          {this.props.children}
         </div>
     );
   }
