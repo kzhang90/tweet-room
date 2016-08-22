@@ -49,8 +49,6 @@ export default class App extends React.Component {
     return (
         <div>
           <NavBar />
-          <h1>Main Title</h1>
-          <button onClick={this.increment}>{this.state.count}</button>
           {this.props.children}
         </div>
     );
@@ -58,7 +56,7 @@ export default class App extends React.Component {
 }
 
 App.propTypes = {
-  initialCount: React.PropTypes.number
+  // initialCount: React.PropTypes.number
 };
 App.defaultProps = {
   // default props go here
