@@ -1,31 +1,42 @@
-//const myComponent = require('./src/components/app');
-const express = require('express');
-const app = express();
+var express = require('express');
+var webpack = require('webpack');
+var path = require('path');
 
-const server = app.listen(3000);
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-const config = require('./webpack.config.js');
+// var webpackDevServer = require('webpack-dev-server');
+var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
+var webpackConfig = require('./webpack.config');
 
-// const React = require('react');
-// const ReactComponent = React.createFactory(myComponent);
+var app = express();
 
-app.use(require('morgan')('short'));
+var compiler = webpack(webpackConfig);
+app.use(webpackDevMiddleware(compiler));
+app.use(webpackHotMiddleware(compiler));
+app.use(express.static('src'));
 
-// making a dev server that hot reloads on 3001 that mimic's 3000
-new WebpackDevServer(webpack(config), {
-  hot: true,
-  historyApiFallback: true,
-  proxy: {
-    '**': 'http://localhost:3000'
-  }
-}).listen(3001, 'localhost', function(err, result) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('teehee');
-  }
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
+app.listen(3000, function(err) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log('Listening at http://localhost:3000');
+});
 
-// send react component as server-rendered string.
+// new webpackDevServer(webpack(config), {
+//   hot: true,
+//   historyApiFallback: true,
+//   proxy: {
+//     '**': 'http://localhost:3000'
+//   }
+// }).listen(3001, 'localhost', function(err, result) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log('teehee');
+//   }
+// });
+
