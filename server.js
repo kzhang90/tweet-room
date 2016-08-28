@@ -1,15 +1,14 @@
-var express = require('express');
-var webpack = require('webpack');
-var path = require('path');
+const express = require('express');
+const webpack = require('webpack');
+const path = require('path');
 
-// var webpackDevServer = require('webpack-dev-server');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var webpackConfig = require('./webpack.config');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackConfig = require('./webpack.config');
 
-var app = express();
+const app = express();
 
-var compiler = webpack(webpackConfig);
+const compiler = webpack(webpackConfig);
 app.use(webpackDevMiddleware(compiler));
 app.use(webpackHotMiddleware(compiler));
 app.use(express.static('src'));
@@ -25,18 +24,3 @@ app.listen(3000, function(err) {
   }
   console.log('Listening at http://localhost:3000');
 });
-
-// new webpackDevServer(webpack(config), {
-//   hot: true,
-//   historyApiFallback: true,
-//   proxy: {
-//     '**': 'http://localhost:3000'
-//   }
-// }).listen(3001, 'localhost', function(err, result) {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log('teehee');
-//   }
-// });
-
