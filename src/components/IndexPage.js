@@ -1,5 +1,5 @@
 import React from 'react';
-import Feed from 'Feed';
+import Feed from './Feed';
 
 export default class IndexPage extends React.Component {
   render() {
@@ -7,6 +7,6 @@ export default class IndexPage extends React.Component {
       <div className="home">
         <Feed />
       </div>
-    )
+    );
   }
 }
