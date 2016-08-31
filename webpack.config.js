@@ -11,7 +11,7 @@ module.exports = {
     './src/app-client.js'
   ],
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'src', '/static'),
     publicPath: '/assets/',
     filename: 'bundle.js'
   },
@@ -29,7 +29,7 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: './public',
+    contentBase: './src/static/views',
     historyApiFallback: true,
     hot: true
   },
