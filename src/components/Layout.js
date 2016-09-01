@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
+import '../static/css/style.css';
+
 
 export default class Home extends React.Component {
   render() {

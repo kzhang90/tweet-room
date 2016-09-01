@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var combineLoaders = require('webpack-combine-loaders');
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -11,8 +12,9 @@ module.exports = {
     './src/app-client.js'
   ],
   output: {
-    path: path.join(__dirname, 'src', '/static'),
-    publicPath: '/assets/',
+    path: __dirname + '/static',
+    // only use publicPath in production?
+    // publicPath: '/assets/',
     filename: 'bundle.js'
   },
   resolve: {
@@ -25,10 +27,26 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
+      }, {
+        test: /\.css$/,
+        loader: combineLoaders([
+          {
+            // style-loader lets it be applied to the page
+            loader: 'style-loader'
+          }, {
+            // css-loader converts css to valid js
+            loader: 'css-loader',
+            query: {
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            }
+          }
+        ])
       }
     ]
   },
   devServer: {
+    // webpack dev server will look for index.html
     contentBase: './src/static/views',
     historyApiFallback: true,
     hot: true
