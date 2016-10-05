@@ -3,18 +3,13 @@ import { Link } from 'react-router';
 import '../static/css/style.css';
 
 
-export default class Home extends React.Component {
+export default class Layout extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <header>
-          <Link to="/">Root Link</Link>
-          <Link to="/Login">Login</Link>
-        </header>
+        <Header />
         <div className="app-content">{this.props.children}</div>
-        <footer>
-          <p>This is my footer</p>
-        </footer>
+        <Footer />
       </div>
     );
   }

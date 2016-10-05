@@ -4,7 +4,7 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <div>
-        Save to mongodb. 
+        Save to mongodb.
       </div>
     );
   }
