@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import Layout from './components/Layout';
-import IndexPage from './components/IndexPage';
-import LoginPage from './components/LoginPage';
-import NotFoundPage from './components/NotFoundPage';
+import IndexPage from './components/pages/IndexPage';
+import LoginPage from './components/pages/LoginPage';
+import NotFoundPage from './components/pages/NotFoundPage';
 
 const routes = (
     <Route path="/" component={Layout}>
