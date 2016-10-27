@@ -1,11 +1,11 @@
 import React from 'react';
-import Feed from './Feed';
+import Trending from './Trending';
 
 export default class IndexPage extends React.Component {
   render() {
     return (
       <div className="home">
-        <Feed />
+        <Trending />
       </div>
     );
   }

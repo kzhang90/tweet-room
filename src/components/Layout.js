@@ -9,21 +9,22 @@ export default class Layout extends React.Component {
   constructor() {
     super();
     this.state = {
-      title: "Welcome, Stranger",
-      data: 0
+      // title: "Welcome, Stranger",
+      // data: 0
     }
-    this.updateNumber = this.updateNumber.bind(this);
+    // this.updateNumber = this.updateNumber.bind(this);
   }
 
-  updateNumber() {
-    this.setState({data: this.state.data + 1});
-  }
+  // updateNumber() {
+  //   this.setState({data: this.state.data + 1});
+  // }
 
   componentWillMount() {
     console.log('will mount')
   }
   componentDidMount() {
     console.log('did mount')
+    // ajax requests
   }
   componentWillReceiveProps(nextProps) {
     console.log('component will receive props')
@@ -42,12 +43,11 @@ export default class Layout extends React.Component {
     console.log('component will unmount')
   }
   render() {
-    const title = "Welcome Kenny!";
+    // const title = "Welcome Kenny!";
     
     return (
       <div className="app-container">
         <Header />
-        <button onClick = {this.updateNumber}>INCREMENT</button>
         <div className="app-content">{this.props.children}</div>
         <Footer />
       </div>
