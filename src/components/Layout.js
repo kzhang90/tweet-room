@@ -1,7 +1,5 @@
 import React from 'react';
 import NavigationBar from './NavigationBar';
-import Title from './Header/Title';
-import Footer from './Footer';
 // import '../static/css/style.css';
 
 
@@ -47,9 +45,7 @@ export default class Layout extends React.Component {
     return (
       <div className="container">
         <NavigationBar />
-        <Title />
         <div className="app-content">{this.props.children}</div>
-        <Footer />
       </div>
     );
   }
