@@ -14,10 +14,10 @@ app.use(webpackDevMiddleware(compiler));
 app.use(webpackHotMiddleware(compiler));
 app.use(express.static('static'));
 
+// make express api for post request for users
+
 app.get('/trending', function(req, res) {
   const url = 'https://api.twitter.com/1.1/trends/place.json';
-  
-
 });
 
 app.get('*', function(req, res) {
