@@ -1,7 +1,7 @@
 import React from 'react';
 import TrendingButton from './TrendingButton';
 
-export default class Feed extends React.Component {
+class Feed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,3 +19,5 @@ export default class Feed extends React.Component {
     );
   }
 }
+
+export default Feed;

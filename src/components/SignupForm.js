@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export default class SignupForm extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -87,3 +87,9 @@ export default class SignupForm extends React.Component {
     )
   }
 }
+
+SignupForm.propTypes = {
+  userSignupRequest: React.PropTypes.func.isRequired
+}
+
+export default SignupForm;

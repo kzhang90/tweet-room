@@ -2,8 +2,7 @@ import React from 'react';
 import NavigationBar from './NavigationBar';
 // import '../static/css/style.css';
 
-
-export default class Layout extends React.Component {
+class Layout extends React.Component {
   // pass props to constructor and super to access and define this.props in this component.
   // constructor() {
   //   super();
@@ -50,3 +49,5 @@ export default class Layout extends React.Component {
     );
   }
 }
+
+export default Layout;

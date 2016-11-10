@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class TrendingButtong extends React.Component {
+class TrendingButton extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -11,3 +11,5 @@ export default class TrendingButtong extends React.Component {
     )
   }
 }
+
+export default TrendingButton;
