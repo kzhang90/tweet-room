@@ -2,7 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 class SignupForm extends React.Component {
+  // constructor is the first method that is called when an instance of a component is being created and inserted into the DOM
   constructor(props) {
+    // call super(props) or else risking code-breaking this.props = undefined.
     super(props);
     this.state = {
       // key: 'value'
@@ -11,6 +13,7 @@ class SignupForm extends React.Component {
       password:'',
       passwordConfirmation: ''
     }
+    // bind class methods with class instance
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -23,6 +26,7 @@ class SignupForm extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     // console.log(this.state);
+    // post to '/api/users'
     axios.post('/api/users', { user: this.state });
   }
   render() {
