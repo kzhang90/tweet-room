@@ -9,6 +9,8 @@ const compiler = webpack(webpackConfig);
 const request = require('request');
 
 require('dotenv').config();
+// in .env file: NAME=VALUE
+// in server file here: process.env.NAME gets value
 
 app.use(webpackDevMiddleware(compiler));
 app.use(webpackHotMiddleware(compiler));
