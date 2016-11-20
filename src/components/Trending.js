@@ -2,7 +2,7 @@ import React from 'react';
 import TrendingButton from './TrendingButton';
 import TrendingTagContainer from './TrendingTagContainer';
 
-class Feed extends React.Component {
+class Trending extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,11 +10,10 @@ class Feed extends React.Component {
     }
   }
 
-  // ajax in this component to get the trending tags
+// ajax in this component to get the trending tags
+// trending tag container is going to be mapped or for loop
   render() {
     return (
-      // button to GET top trending hashtags
-      // component to contain trending tags
       <div className="trendingTags">
         <TrendingButton />
         <TrendingTagContainer />
@@ -23,4 +22,4 @@ class Feed extends React.Component {
   }
 }
 
-export default Feed;
+export default Trending;
