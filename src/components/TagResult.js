@@ -9,7 +9,11 @@ class TagResult extends React.Component {
   render() {
     console.log("in the render!");
     return (
-
+      <div className="tagResult">
+        <div>This is the tag result</div>
+      </div>
     );
   } 
 }
+
+export default TagResult;

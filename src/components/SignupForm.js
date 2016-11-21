@@ -25,8 +25,6 @@ class SignupForm extends React.Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    // console.log(this.state);
-    // post to '/api/users'
     axios.post('/api/users', { user: this.state });
   }
   render() {
