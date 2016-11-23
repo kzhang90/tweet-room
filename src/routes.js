@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import Layout from './components/Layout';
 import IndexPage from './components/pages/IndexPage';
+import TagPage from './components/pages/TagPage';
 import SignupPage from './components/pages/SignupPage';
 import LoginPage from './components/pages/LoginPage';
 import NotFoundPage from './components/pages/NotFoundPage';

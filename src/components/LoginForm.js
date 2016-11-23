@@ -3,7 +3,7 @@ import React from 'react';
 class LoginForm extends React.Component {
   render() {
     return (
-      <div>
+      <div className="loginForm">
         Save to mongodb.
       </div>
     );

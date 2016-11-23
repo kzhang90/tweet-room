@@ -5,12 +5,11 @@ class TrendingButton extends React.Component {
     super(props);
   }
   // methods to get http results
+  
   render() {
     return (
-      <div className="trendingButton">
-        <button>Get Tags</button>
-      </div>
-    )
+      <button className="trendingButton">Get Tags</button>
+    );
   }
 }
 

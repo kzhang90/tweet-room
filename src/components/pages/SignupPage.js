@@ -13,7 +13,7 @@ class SignupPage extends React.Component {
           <SignupForm userSignupRequest={userSignupRequest} />
         </div>
       </div>
-    )
+    );
   }
 }
 // when you expect this component will have the prop
