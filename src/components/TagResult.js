@@ -4,11 +4,12 @@ import React from 'react';
 class TagResult extends React.Component {
   constructor (props) {
     super(props);
-    console.log("in tagresult constructor!");
+    console.log(this.props);
   }
 
   render() {
-    console.log("in tagresult render!");
+    const { tagdata } = this.props;
+    console.log("TagResult render");
     return (
       <div className="tagResult">
         This should be a img with a small graph
