@@ -3,9 +3,9 @@ import axios from 'axios';
 
 class SignupForm extends React.Component {
   // constructor is the first method that is called when an instance of a component is being created and inserted into the DOM
-  constructor(props) {
+  constructor() {
     // call super(props) or else risking code-breaking this.props = undefined.
-    super(props);
+    super();
     this.state = {
       // key: 'value'
       username: '',

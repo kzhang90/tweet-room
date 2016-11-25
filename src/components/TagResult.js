@@ -11,8 +11,8 @@ class TagResult extends React.Component {
     const { tagdata } = this.props;
     console.log("TagResult render");
     return (
-      <div className="tagResult">
-        This should be a img with a small graph
+      <div className="tag-result">
+        <p>This should be a img with a small graph</p>
       </div>
     );
   } 
