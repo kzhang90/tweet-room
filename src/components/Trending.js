@@ -5,6 +5,9 @@ import TrendingTagContainer from './TrendingTagContainer';
 class Trending extends React.Component {
   constructor() {
     super();
+    this.state = {
+      hashtags: []
+    }
     this.getTrending = this.getTrending.bind(this);
   }
 
