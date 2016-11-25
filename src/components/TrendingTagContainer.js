@@ -5,7 +5,6 @@ import TagResult from './TagResult';
 class TrendingTagContainer extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
 // top 10
   render() {
