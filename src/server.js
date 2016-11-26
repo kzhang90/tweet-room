@@ -29,6 +29,7 @@ app.use(webpackHotMiddleware(compiler));
 //   const url = 'https://api.twitter.com/1.1/trends/place.json';
 // });
 
+
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'static/views/index.html'));
 });

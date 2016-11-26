@@ -7,14 +7,11 @@ class Trending extends React.Component {
   constructor() {
     super();
     this.state = {
-      hashtags: []
+      hashtags: [];
     }
     this.getTrending = this.getTrending.bind(this);
   }
 
-// ajax in this component to get the trending tags
-// trending tag container is going to be mapped or for loop
-// button result is passed as props to trending tag container
   getTrending() {
     request.get('').end((error, response) => {
       if (!error && response) {
