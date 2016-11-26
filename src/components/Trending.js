@@ -18,7 +18,7 @@ class Trending extends React.Component {
     console.log('in getTrending!');
     request.get('').end((error, response) => {
       if (!error && response) {
-        this.setState({ hashtags: something.response.find.it });
+        this.setState({ hashtags: look.at.response });
       } else {
         console.log('There was an error fetching from Twitter', error);
       }
@@ -29,7 +29,7 @@ class Trending extends React.Component {
     return (
       <div className="trending-wrap">
         <button onClick={this.getTrending} className="getTrendingButton">Get Trending!</button>
-        <TrendingTagContainer myprop={'teehee'}/>
+        <TrendingTagContainer myprop={'teehee'} />
       </div>
     );
   }
