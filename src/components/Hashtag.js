@@ -1,7 +1,7 @@
 import React from 'react';
 // takes the props and displays
 // do stuff with data in the props
-class TagResult extends React.Component {
+class Hashtag extends React.Component {
   constructor (props) {
     super(props);
   }
@@ -16,4 +16,4 @@ class TagResult extends React.Component {
   } 
 }
 
-export default TagResult;
+export default Hashtag;
