@@ -9,7 +9,7 @@ module.exports = {
     // 'only' prevents reload on syntax errors
     'webpack/hot/only-dev-server',
     // app's entry point
-    './src/app-client.js'
+    './src/client/app-client.js'
   ],
   output: {
     path: __dirname + '/static',

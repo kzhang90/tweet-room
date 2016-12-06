@@ -3,8 +3,8 @@ const webpack = require('webpack');
 const path = require('path');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('../webpack.config');
-
+const webpackConfig = require('../../webpack.config');
+// import users from ''
 const app = express();
 
 const compiler = webpack(webpackConfig);
@@ -14,12 +14,14 @@ const compiler = webpack(webpackConfig);
 require('dotenv').config();
 // in .env file: NAME=VALUE
 // in server file here: process.env.NAME gets value
+// app.use('/api/users/', users);
 
 app.use(webpackMiddleware(compiler, {
   hot: true,
   publicPath: webpackConfig.output.publicPath,
   noInfo: true
 }));
+
 app.use(webpackHotMiddleware(compiler));
 // app.use(express.static('static'));
 
@@ -31,7 +33,7 @@ app.use(webpackHotMiddleware(compiler));
 
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'static/views/index.html'));
+  res.sendFile(path.join(__dirname, '../client/static/views/index.html'));
 });
 
 app.listen(8080, function(err) {
