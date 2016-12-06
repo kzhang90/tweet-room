@@ -1,13 +1,12 @@
 import React from 'react';
 import request from 'superagent';
-import TrendingTagContainer from './TrendingTagContainer';
 import Hashtag from './Hashtag';
 
 class Trending extends React.Component {
   constructor() {
     super();
     this.state = {
-      hashtags: [];
+      hashtags: []
     }
     this.getTrending = this.getTrending.bind(this);
   }

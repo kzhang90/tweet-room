@@ -6,6 +6,8 @@ import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 // thunk allows us to dispatch async
+
+
 const store = createStore(
   (state = {}) => state,
   applyMiddleware(thunk)
