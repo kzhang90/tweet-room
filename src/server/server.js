@@ -1,10 +1,11 @@
 const express = require('express');
 const webpack = require('webpack');
 const path = require('path');
+const bodyParser = require('body-parser');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('../../webpack.config');
-// import users from ''
+const users = require('./routes/users');
 const app = express();
 
 const compiler = webpack(webpackConfig);
@@ -12,9 +13,11 @@ const compiler = webpack(webpackConfig);
 // const request = require('request');
 
 require('dotenv').config();
+
+app.use(bodyParser.json());
 // in .env file: NAME=VALUE
 // in server file here: process.env.NAME gets value
-// app.use('/api/users/', users);
+app.use('/api/users/', users);
 
 app.use(webpackMiddleware(compiler, {
   hot: true,
