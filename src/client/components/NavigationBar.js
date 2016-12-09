@@ -7,7 +7,7 @@ class NavigationBar extends React.Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">Logo</a>
+            <div className="navbar-brand"><Link to="/">Logo</Link></div>
           </div>
 
           <div className="collapse navbar-collapse">

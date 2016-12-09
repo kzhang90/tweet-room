@@ -24,16 +24,21 @@ class SignupForm extends React.Component {
       [e.target.name]: e.target.value
     });
   }
+
+  isValid() {
+    val
+  }
   onSubmit(e) {
     // every time we submit, we want to clear the errors.
-
-    e.preventDefault();
-    this.setState({ errors: {}, isLoading: true });
-    this.props.userSignupRequest(this.state).then(
-      () => {},
-      // if something goes wrong:
-      ({ data }) => this.setState({ errors: data, isLoading: false })
-    )
+    if (this.isValid()) {
+      e.preventDefault();
+      this.setState({ errors: {}, isLoading: true });
+      this.props.userSignupRequest(this.state).then(
+        () => {},
+        // if something goes wrong:
+        ({ data }) => this.setState({ errors: data, isLoading: false })
+      )  
+    }  
   }
   render() {
     const { errors } = this.state;
