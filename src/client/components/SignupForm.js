@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import validateInput from '../../server/shared/validations/signup';
 
 class SignupForm extends React.Component {
   // constructor is the first method that is called when an instance of a component is being created and inserted into the DOM
@@ -25,20 +26,29 @@ class SignupForm extends React.Component {
     });
   }
 
+
   isValid() {
-    val
+
+    const { errors, isValid } = validateInput(this.state);
+
+    if (!isValid) {
+      this.setState({ errors });
+    }
+
+    return isValid;
   }
   onSubmit(e) {
+    e.preventDefault();
     // every time we submit, we want to clear the errors.
+    // dispatches actions and makes the ajax request.
     if (this.isValid()) {
-      e.preventDefault();
       this.setState({ errors: {}, isLoading: true });
       this.props.userSignupRequest(this.state).then(
         () => {},
         // if something goes wrong:
         ({ data }) => this.setState({ errors: data, isLoading: false })
-      )  
-    }  
+      );
+    }
   }
   render() {
     const { errors } = this.state;

@@ -25,6 +25,10 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
+        // below is if using es6 in serverside code 
+        // include: [
+        //   path.
+        // ]
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
       }, {
