@@ -1,16 +1,20 @@
 import React from 'react';
-import routes from '../routes';
+import routes from './routes';
 import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 // thunk allows us to dispatch async
+import rootReducer from './rootReducer';
 
 
 const store = createStore(
-  (state = {}) => state,
-  applyMiddleware(thunk)
+  rootReducer,
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
 );
 
 class AppRoutes extends React.Component {
