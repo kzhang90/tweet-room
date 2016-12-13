@@ -1,8 +1,8 @@
-var validator = require("validator");
-var _ = require('lodash');
+const validator = require("validator");
+const _ = require('lodash');
 
 function validateInput(data) {
-  var errors = {};
+  const errors = {};
 
   if (validator.isEmpty(data.username)) {
     errors.username = "This field is required";

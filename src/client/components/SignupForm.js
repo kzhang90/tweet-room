@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import validateInput from '../../server/shared/validations/signup';
+import { browserHistory } from 'react-router';
 
 class SignupForm extends React.Component {
   // constructor is the first method that is called when an instance of a component is being created and inserted into the DOM
@@ -19,22 +20,17 @@ class SignupForm extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-
   onChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
-
-
   isValid() {
-
     const { errors, isValid } = validateInput(this.state);
 
     if (!isValid) {
       this.setState({ errors });
     }
-
     return isValid;
   }
   onSubmit(e) {
@@ -44,7 +40,9 @@ class SignupForm extends React.Component {
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
       this.props.userSignupRequest(this.state).then(
-        () => {},
+        () => {
+          browserHistory.push('/');
+        },
         // if something goes wrong:
         ({ data }) => this.setState({ errors: data, isLoading: false })
       );
