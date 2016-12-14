@@ -9,7 +9,7 @@ class Login extends React.Component {
         <div className="col-md-4 col-md-offset-4">
           <h1 className="text-center">Signin Page</h1>
           <SigninForm />
-          <input type="image" src="static/images/sign-in-with-twitter-button.png" name="twitterLogin" id="twitterLogin" />
+          <input className="center-block" type="image" src="static/images/sign-in-with-twitter-button.png" name="twitterLogin" id="twitterLogin" />
         </div>
       </div>
     );

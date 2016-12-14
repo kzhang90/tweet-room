@@ -1,7 +1,7 @@
 import React from 'react';
 import NavigationBar from './NavigationBar';
 import FlashMessagesList from './flash/FlashMessagesList';
-import '../static/css/style.css';
+// import '../static/css/style.css';
 
 class Layout extends React.Component {
   render() { 
