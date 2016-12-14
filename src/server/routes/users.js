@@ -11,6 +11,7 @@ function validateInput(data, otherValidations) {
   var _otherValidations = otherValidations(data),
       errors = _otherValidations.errors;
 
+// check for duplicates
   return User.query({
     where: { email: data.email },
     orWhere: { username: data.username }
