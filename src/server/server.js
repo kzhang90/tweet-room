@@ -26,7 +26,7 @@ app.use(webpackMiddleware(compiler, {
 }));
 
 app.use(webpackHotMiddleware(compiler));
-// app.use(express.static('static'));
+app.use('/static', express.static(path.join(__dirname, '../client/static')))
 
 // make express api for post request for users
 
