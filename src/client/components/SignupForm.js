@@ -19,6 +19,7 @@ class SignupForm extends React.Component {
     // bind class methods with class instance
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.checkUserExists = this.checkUserExists.bind(this);
   }
   onChange(e) {
     this.setState({
@@ -53,6 +54,16 @@ class SignupForm extends React.Component {
       );
     }
   }
+  checkUserExists(e) {
+    const field = e.target.name;
+    // username or email
+    const val = t.target.value;
+    if (val !== '') {
+      this.props.isUserExists(val).then(res => {
+
+      })
+    }
+  }
   render() {
     const { errors } = this.state;
     return (
@@ -63,6 +74,7 @@ class SignupForm extends React.Component {
           error={errors.username}
           label="Username"
           onChange={this.onChange}
+          checkUserExists{this.checkUserExists}
           value={this.state.username}
           field="username"
         />
@@ -103,7 +115,8 @@ class SignupForm extends React.Component {
 
 SignupForm.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired,
-  addFlashMessage: React.PropTypes.func.isRequired
+  addFlashMessage: React.PropTypes.func.isRequired,
+  isUserExists: React.PropTypes.object.isRequired
 }
 
 export default SignupForm;
