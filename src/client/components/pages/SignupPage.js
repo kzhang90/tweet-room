@@ -1,7 +1,7 @@
 import React from 'react';
 import SignupForm from '../SignupForm';
 import { connect } from 'react-redux';
-import {userSignupRequest, isUserExists} from '../../actions/signupActions';
+import { userSignupRequest, isUserExists } from '../../actions/signupActions';
 import { addFlashMessage } from '../../actions/flashMessages';
 
 class SignupPage extends React.Component {
@@ -25,4 +25,5 @@ SignupPage.propTypes = {
   isUserExists: React.PropTypes.func.isRequired
 }
 
+// connecting an action with the signup page component.
 export default connect(null, { userSignupRequest, addFlashMessage, isUserExists })(SignupPage);

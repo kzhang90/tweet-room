@@ -31,6 +31,17 @@ function validateInput(data, otherValidations) {
   })
 }
 
+router.get('/:identifier', function (req, res) {
+  User.query({
+    select: [ 'username', 'email'],
+    where: { email: req.params.identifier },
+    orWhere: { username: req.params.identifier }
+  }).fetch().then(function(user) {
+    // if no user, then it will be null.
+    res.json({ user });
+  });
+});
+
 router.post('/', function (req, res) {
   validateInput(req.body, commonValidations).then(function(_ref) {
     var errors = _ref.errors,

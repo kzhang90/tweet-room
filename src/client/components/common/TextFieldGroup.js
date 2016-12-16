@@ -25,6 +25,7 @@ TextFieldGroup.propTypes = {
   error: React.PropTypes.string,
   type: React.PropTypes.string.isRequired,
   onChange: React.PropTypes.func.isRequired,
+  // not required because not all textfields should react to on blur.
   checkUserExists: React.PropTypes.func
 }
 
