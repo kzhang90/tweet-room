@@ -1,8 +1,9 @@
 import React from 'react';
 import TextFieldGroup from './common/TextFieldGroup';
 import { signIn } from '../helpers/auth';
-// import { login } from '../actions/login';
-import validateInput from '../../server/shared/validations/signin';
+import { login } from '../actions/login';
+import { connect } from 'react-redux';
+import validateInput from '../../server/shared/validations/login';
 
 class LoginForm extends React.Component {
   constructor() {
@@ -31,12 +32,13 @@ class LoginForm extends React.Component {
   }
   onSubmit(e) {
     e.preventDefault();
+    // serverside validations:
     if (this.isValid()) {
-      // this.setState({ errors: {}, isLoading: true });
-      // this.props.login(this.state).then(
-      //   (res) => this.context.router.push('/'),
-      //   (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
-      // );
+      this.setState({ errors: {}, isLoading: true });
+      this.props.login(this.state).then(
+        (res) => this.context.router.push('/'), 
+        (err) => this.setState({ errors: err.data.errors, isLoading: false })
+      );
     }
   }
   onChange(e) {
@@ -77,4 +79,11 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm;
+LoginForm.propTypes = {
+  login: React.PropTypes.func.isRequired
+}
+
+LoginForm.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
+export default connect(null, { login })(LoginForm);

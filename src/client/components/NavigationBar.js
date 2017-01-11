@@ -13,7 +13,7 @@ class NavigationBar extends React.Component {
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav navbar-right">
               <li><Link to="/signup">Sign up</Link></li>
-              <li><Link to="/signin">Sign in</Link></li>
+              <li><Link to="/login">Log In</Link></li>
               <li><Link to="/signout">Sign out</Link></li>
             </ul>
           </div>
