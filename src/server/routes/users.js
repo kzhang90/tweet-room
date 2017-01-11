@@ -6,6 +6,7 @@ const User = require('../models/user');
 
 const router = express.Router();
 
+// otherValidations will actually be 'commonValidations'
 function validateInput(data, otherValidations) {
   // deconstruct and only take errors from otherValidations
   var _otherValidations = otherValidations(data),
@@ -33,11 +34,13 @@ function validateInput(data, otherValidations) {
 
 router.get('/:identifier', function (req, res) {
   User.query({
+    // don't want to select password digest
     select: [ 'username', 'email'],
     where: { email: req.params.identifier },
     orWhere: { username: req.params.identifier }
   }).fetch().then(function(user) {
     // if no user, then it will be null.
+    // doesn't matter if there is a user or not.
     res.json({ user });
   });
 });

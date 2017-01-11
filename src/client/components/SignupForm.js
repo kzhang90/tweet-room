@@ -29,7 +29,6 @@ class SignupForm extends React.Component {
   }
   isValid() {
     const { errors, isValid } = validateInput(this.state);
-
     if (!isValid) {
       this.setState({ errors });
     }
@@ -74,7 +73,7 @@ class SignupForm extends React.Component {
           invalid = false;
         }
 
-        this.setState({ errors, inValid });
+        this.setState({ errors, invalid });
       })
     }
   }

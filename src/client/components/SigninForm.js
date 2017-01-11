@@ -1,6 +1,7 @@
 import React from 'react';
 import TextFieldGroup from './common/TextFieldGroup';
 import { signIn } from '../helpers/auth';
+// import { login } from '../actions/login';
 import validateInput from '../../server/shared/validations/signin';
 
 class LoginForm extends React.Component {
@@ -22,18 +23,20 @@ class LoginForm extends React.Component {
   }
   isValid() {
     const { errors, isValid } = validateInput(this.state);
-
-    if(!isValid) {
+    if (!isValid) {
       this.setState({ errors });
     } else {
       return isValid;
     }
   }
   onSubmit(e) {
-    console.log('submitted');
     e.preventDefault();
     if (this.isValid()) {
-
+      // this.setState({ errors: {}, isLoading: true });
+      // this.props.login(this.state).then(
+      //   (res) => this.context.router.push('/'),
+      //   (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
+      // );
     }
   }
   onChange(e) {
@@ -45,13 +48,13 @@ class LoginForm extends React.Component {
     return (
       <div className="loginForm">
         <form onSubmit={this.onSubmit}>
-          <h1>Login</h1>
+          <h1>Log In</h1>
 
           <TextFieldGroup
             field="identifier"
             label="Username / Email"
             value={identifier}
-            errors={errors.identifier}
+            error={errors.identifier}
             onChange={this.onChange}
           />          
 
@@ -59,11 +62,14 @@ class LoginForm extends React.Component {
             field="password"
             label="Password"
             value={password}
-            errors={errors.password}
+            error={errors.password}
             onChange={this.onChange}
             type="password"
           />
-          <div className="form-group"><button className="btn btn-primary btn-lrg" disabled={isLoading}>Login</button></div>
+
+          <div className="form-group">
+            <button className="btn btn-primary btn-lrg" disabled={isLoading}>Login</button>
+          </div>
         </form>
         <input className="center-block" onClick={this.handleTwitterSubmit} type="image" src="static/images/sign-in-with-twitter-button.png" name="twitterLogin" id="twitterLogin" />
       </div>
