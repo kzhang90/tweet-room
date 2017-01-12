@@ -1,6 +1,5 @@
 import React from 'react';
 import validateInput from '../../server/shared/validations/signup';
-import { browserHistory } from 'react-router';
 import TextFieldGroup from './common/TextFieldGroup';
 
 class SignupForm extends React.Component {
@@ -46,10 +45,11 @@ class SignupForm extends React.Component {
           this.props.addFlashMessage({
             type: 'success',
             text: 'You signed up successfully.'
-          })
-          browserHistory.push('/');
+          });
+          this.context.router.push('/');
         },
-        // if something goes wrong:
+// below might instead have to be 
+// (err) => this.setState({ errors: err.response.data, isLoading: false })
         ({ data }) => this.setState({ errors: data, isLoading: false })
       );
     }
@@ -107,6 +107,7 @@ class SignupForm extends React.Component {
           onChange={this.onChange}
           value={this.state.password}
           field="password"
+          type="password"
         />        
 
         <TextFieldGroup
@@ -115,6 +116,7 @@ class SignupForm extends React.Component {
           onChange={this.onChange}
           value={this.state.passwordConfirmation}
           field="passwordConfirmation"
+          type="password"
         />
 
         <div className="form-group">

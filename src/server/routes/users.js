@@ -49,7 +49,6 @@ router.post('/', function (req, res) {
   validateInput(req.body, commonValidations).then(function(_ref) {
     var errors = _ref.errors,
         isValid = _ref.isValid;
-
     if (isValid) {
       const _req$body = req.body,
           username = _req$body.username,
@@ -59,17 +58,15 @@ router.post('/', function (req, res) {
       const password_digest = bcrypt.hashSync(password, 10);
       User.forge({
         username, email, password_digest
-      }, { hasTimestamps: true }).save().then(function(user) {
-        return res.json({ success: true })
-      }).catch(function(err) {
-        // 500 is internal server error
-        return res.status(500).json({ error: err });
-      })
+      }, { hasTimestamps: true }).save()
+      .then(function(user) {return res.json({ success: true })})
+      .catch(function(err) {return res.status(500).json({ error: err });
+      });
     } else {
+      alert('error reached');
       res.status(400).json(errors);
     }
   })
 });
 
 module.exports = router;
-
