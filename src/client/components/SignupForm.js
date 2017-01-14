@@ -3,7 +3,6 @@ import validateInput from '../../server/shared/validations/signup';
 import TextFieldGroup from './common/TextFieldGroup';
 
 class SignupForm extends React.Component {
-  // constructor is the first method that is called when an instance of a component is being created and inserted into the DOM
   constructor() {
     // call super(props) or else risking code-breaking this.props = undefined.
     super();
@@ -16,7 +15,6 @@ class SignupForm extends React.Component {
       isLoading: false,
       invalid: false
     }
-    // bind class methods with class instance
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.checkUserExists = this.checkUserExists.bind(this);
@@ -39,9 +37,9 @@ class SignupForm extends React.Component {
     // dispatches actions and makes the ajax request.
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
+      console.log('in onsubmit');
       this.props.userSignupRequest(this.state).then(
         () => {
-          // dispatch an action
           this.props.addFlashMessage({
             type: 'success',
             text: 'You signed up successfully.'
@@ -133,6 +131,10 @@ SignupForm.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired,
   addFlashMessage: React.PropTypes.func.isRequired,
   isUserExists: React.PropTypes.func.isRequired
+}
+
+SignupForm.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 export default SignupForm;

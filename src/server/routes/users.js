@@ -27,7 +27,7 @@ function validateInput(data, otherValidations) {
     }
     return {
       errors,
-      isValid: _.isNull(errors)
+      isValid: _.isEmpty(errors)
     }
   })
 }
@@ -49,12 +49,12 @@ router.post('/', function (req, res) {
   validateInput(req.body, commonValidations).then(function(_ref) {
     var errors = _ref.errors,
         isValid = _ref.isValid;
+      // Problem: isValid is not true.
     if (isValid) {
       const _req$body = req.body,
           username = _req$body.username,
           password = _req$body.password,
           email = _req$body.email;
-  // salt = 10
       const password_digest = bcrypt.hashSync(password, 10);
       User.forge({
         username, email, password_digest
@@ -63,7 +63,6 @@ router.post('/', function (req, res) {
       .catch(function(err) {return res.status(500).json({ error: err });
       });
     } else {
-      alert('error reached');
       res.status(400).json(errors);
     }
   })
