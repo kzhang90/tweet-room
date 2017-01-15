@@ -22,7 +22,7 @@ router.post('/', function(req, res) {
           id: user.get('id'),
           username: user.get('username')
         }, config.jwtSecret);
-        // json web token is used for decoding later.
+        // json web token is going to be saved on client, decoded, and used.
         res.json({ token });
       } else {
         res.status(401).json({ errors: { form: 'Invalid Credentials' } });
