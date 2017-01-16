@@ -7,7 +7,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 // thunk allows us to dispatch async
 import rootReducer from './rootReducer';
-
+import setAuthorizationToken from './utils/setAuthorizationToken';
+import jwt from 'jsonwebtoken';
+import { setCurrentUser } from './actions/authActions';
 
 const store = createStore(
   rootReducer,
@@ -16,6 +18,12 @@ const store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 );
+
+if (localStorage.jwtToken) {
+  setAuthorizationToken(localStorage.jwtToken);
+  store.dispatch(setCurrentUser(jwt.decode(localStorage.jwtToken)));  
+}
+
 
 class AppRoutes extends React.Component {
   render() {

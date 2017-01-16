@@ -1,7 +1,7 @@
 import React from 'react';
 import TextFieldGroup from './common/TextFieldGroup';
 import { signIn } from '../helpers/auth';
-import { login } from '../actions/login';
+import { login } from '../actions/authActions';
 import { connect } from 'react-redux';
 import validateInput from '../../server/shared/validations/login';
 
