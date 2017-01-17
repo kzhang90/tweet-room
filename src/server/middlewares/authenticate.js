@@ -27,10 +27,12 @@ export default (req, res, next) => {
         }).fetch().then(user => {
           if (!user) {
             // if can't find user.
-          }
-          req.currentUser = user;
+            res.status(404).json({ error: "No such user" });
+          } else {
+            req.currentUser = user;
           // call next only if there is a user and there is a valid token associated with this user.
-          next();
+            next();
+          }
         });
       }
     })
