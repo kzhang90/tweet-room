@@ -1,7 +1,7 @@
 import React from 'react';
 import Trending from '../Trending';
 
-class IndexPage extends React.Component {
+class HomePage extends React.Component {
   render() {
     return (
       <div className="home">
@@ -11,4 +11,4 @@ class IndexPage extends React.Component {
   }
 }
 
-export default IndexPage;
+export default HomePage;
