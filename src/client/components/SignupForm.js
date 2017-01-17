@@ -47,8 +47,7 @@ class SignupForm extends React.Component {
           this.context.router.push('/');
         },
 // below might instead have to be 
-// (err) => this.setState({ errors: err.response.data, isLoading: false })
-        ({ data }) => this.setState({ errors: data, isLoading: false })
+        (err) => this.setState({ errors: err.response.data, isLoading: false })
       );
     }
   }

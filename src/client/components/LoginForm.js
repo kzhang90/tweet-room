@@ -37,7 +37,8 @@ class LoginForm extends React.Component {
       this.setState({ errors: {}, isLoading: true });
       this.props.login(this.state).then(
         (res) => this.context.router.push('/'), 
-        (err) => this.setState({ errors: err.data.errors, isLoading: false })
+        // changed from err.data.errors to err.response.data.errors for axios 13.1
+        (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
       );
     }
   }
