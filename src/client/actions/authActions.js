@@ -1,6 +1,6 @@
 import axios from 'axios';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
-import jwt from 'jsonwebtoken';
+import jwtDecode from 'jwt-decode';
 import { SET_CURRENT_USER } from './types';
 
 export function setCurrentUser(user) {
@@ -18,7 +18,7 @@ export function login(data) {
       localStorage.setItem('jwtToken', token);
       setAuthorizationToken(token);
       // decoded token is the user object.
-      dispatch(setCurrentUser(jwt.decode(token)));
+      dispatch(setCurrentUser(jwtDecode(token)));
     });
   }
 }

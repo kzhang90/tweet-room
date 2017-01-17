@@ -21,10 +21,6 @@ module.exports = {
     moduleDirectories: ['node_modules', 'src'],
     extensions: ['', '.js']
   },
-  node: {
-    net: 'empty',
-    dns: 'empty'
-  },
   module: {
     loaders: [
       {
