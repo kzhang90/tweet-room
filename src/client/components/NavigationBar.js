@@ -1,8 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router';
+// need to connect to redux store so that it has access to current user information.
+import { connect } from 'react-redux';
+import { logout } from '../actions/authActions';
 
 class NavigationBar extends React.Component {
+  logout(e) {
+    e.preventDefault();
+    // we expect this component to have the logout action.
+    this.props.logout();
+  }
+
   render() {
+    const { isAuthenticated } = this.props.auth;
+
+    const userLinks = (
+      <ul className="nav navbar-nav navbar-right">
+        <li><a href="#" onClick={this.logout.bind(this)}>Log Out</a></li>
+      </ul>
+    );
+
+    const guestLinks = (
+      <ul className="nav navbar-nav navbar-right">
+        <li><Link to="/signup">Sign up</Link></li>
+        <li><Link to="/login">Log In</Link></li>
+      </ul>
+    );
     return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -11,11 +34,7 @@ class NavigationBar extends React.Component {
           </div>
 
           <div className="collapse navbar-collapse">
-            <ul className="nav navbar-nav navbar-right">
-              <li><Link to="/signup">Sign up</Link></li>
-              <li><Link to="/login">Log In</Link></li>
-              <li><Link to="/signout">Sign out</Link></li>
-            </ul>
+            { isAuthenticated ? userLinks : guestLinks }
           </div>
         </div>
       </nav>
@@ -23,4 +42,16 @@ class NavigationBar extends React.Component {
   }
 }
 
-export default NavigationBar;
+NavigationBar.propTypes = {
+  auth: React.PropTypes.object.isRequired,
+  logout: React.PropTypes.func.isRequired
+}
+
+function mapStateToProps(state) {
+  // fields of this object are the props of this component.
+  return {
+    auth: state.auth
+  }
+}
+
+export default connect(mapStateToProps, { logout })(NavigationBar);
