@@ -54,4 +54,5 @@ function mapStateToProps(state) {
   }
 }
 
+// logout is the Action.
 export default connect(mapStateToProps, { logout })(NavigationBar);
