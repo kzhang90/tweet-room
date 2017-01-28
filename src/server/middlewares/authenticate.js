@@ -16,7 +16,7 @@ export default (req, res, next) => {
     jwt.verify(token, config.jwtSecret, (err, decoded) => {
       if (err) {
         // invalid jwt token
-        res.status(401).json({ erro: "Failed to authenticate" });
+        res.status(401).json({ error: "Failed to authenticate" });
       } else {
         // find user by id from token and add it to current request.
 

@@ -7,10 +7,11 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 // thunk allows us to dispatch async
 import rootReducer from './rootReducer';
-import setAuthorizationToken from './utils/setAuthorizationToken';
-import jwtDecode from 'jwt-decode';
+// import setAuthorizationToken from './utils/setAuthorizationToken';
+// import jwtDecode from 'jwt-decode';
 import { setCurrentUser } from './actions/authActions';
 
+// store is here.
 const store = createStore(
   rootReducer,
   compose(
@@ -19,10 +20,10 @@ const store = createStore(
   )
 );
 
-if (localStorage.jwtToken) {
-  setAuthorizationToken(localStorage.jwtToken);
-  store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));  
-}
+// if (localStorage.jwtToken) {
+//   setAuthorizationToken(localStorage.jwtToken);
+//   store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));  
+// }
 
 
 class AppRoutes extends React.Component {

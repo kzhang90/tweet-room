@@ -1,6 +1,5 @@
 import firebase from 'firebase';
 import { firebaseAuth } from '../config/constants';
-// firebase.auth
 
 const provider = new firebaseAuth.TwitterAuthProvider();
 
