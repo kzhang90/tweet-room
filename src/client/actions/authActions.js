@@ -11,6 +11,7 @@ export function setCurrentUser(user) {
   };
 }
 
+// this is the function needed for twitter auth. perhaps save the token this way into the store.
 export function login(data) {
   return dispatch => {
     return axios.post('/api/auth', data).then(res => {

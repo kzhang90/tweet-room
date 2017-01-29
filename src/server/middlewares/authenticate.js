@@ -1,7 +1,9 @@
+// this may not be necessary
+
+
 // check for token whenever a protected route is requested.
 import jwt from 'jsonwebtoken';
 import config from '../config';
-import User from '../models/user';
 
 export default (req, res, next) => {
   const authorizationHeader = req.headers['authorization'];
